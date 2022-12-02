@@ -34,11 +34,3 @@ https://github.com/aws/aws-cdk/blob/main/docs/DESIGN_GUIDELINES.md <!-- .element
 ---
 サービスを生み、育てるものとして、本番で動作するアプリケーションまで責任を持ち、高効率開発につなげよう！
 Notes: [注意]個人のお気持ちです。
----
-### ご清聴ありがとうございました！
----
-最後にクイズです！
----
-DevelopersIO 2022 イベントサイトの ○○○○○○ を見よう！<!-- .element style="font-size: 32px;" -->  
-○○○○○○ の部分は下の画像がヒントだよ！<!-- .element style="font-size: 32px;" -->  
-![](./quiz.png) <!-- .element: height="500px" -->
