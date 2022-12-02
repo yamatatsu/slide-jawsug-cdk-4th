@@ -8,6 +8,5 @@ import "./main.css";
 const deck = new Reveal({
   plugins: [Markdown, Highlight, Notes],
   history: true,
-  showNotes: true,
 });
 deck.initialize();
