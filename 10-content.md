@@ -1,36 +1,65 @@
+私のあとの方々からは今年のCDKに関するアップデートを振り返っていくのですが、私からはCDKが生まれてから去年まで、どんな事があったのかという歴史を紹介していきたいと思います。
+
 ### 目次
 
-- モチベーション
+- CDK出生秘話
 - 〇〇期
 - 〇〇期
 - 〇〇期
 - 〇〇期
 ---
-### CDKはなぜ生まれて、なぜあの形をしているのか
+# きっかけ
 ---
-- [AWSブログ] <!-- .element style="font-size: 32px;" -->
-  [Working backwards: The story behind the AWS Cloud Development Kit](https://aws.amazon.com/jp/blogs/opensource/working-backwards-the-story-behind-the-aws-cloud-development-kit/)<!-- .element style="font-size: 32px;" -->
-- [AWSブログ] <!-- .element style="font-size: 32px; margin-top: 16px" -->
-  [AWS CDKでクラウドアプリケーションを開発するためのベストプラクティス](https://aws.amazon.com/jp/blogs/news/best-practices-for-developing-cloud-applications-with-aws-cdk/)<!-- .element style="font-size: 32px;" -->
-Notes:
-前者には、CDKの作者 Elad Ben-Israel が如何にしてCDKを作成するに至ったかが書かれています
+CDKの作者 Elad Ben-Israel が書いたブログ
 
-後者には、現在最もCDKにコミットしているRico HuijbersがCDKの哲学について説明しています。
----
-- 2 pizza team。開発（アプリケーション）と運用（インフラストラクチャ）を近づける試み。DevOps。<!-- .element style="font-size: 36px;" -->
-- アプリケーションをユーザーに届けるためのすべてを cloud assembly という形式で管理、デプロイする。<!-- .element style="font-size: 36px; margin-top: 16px" -->
-- 少数チームでサービスを育てるためのすべてを管理して、高効率開発につなげるための、思いとプラクティスが詰まってる。それがCDKです。<!-- .element style="font-size: 36px; margin-top: 16px" -->
-Notes:
-CDKの実装ポリシーは以下のドキュメントにまとまっている。
-https://github.com/aws/aws-cdk/blob/main/docs/DESIGN_GUIDELINES.md <!-- .element: style="overflow-wrap: break-word;" -->
-
-第一項: [CDKの哲学](https://aws.amazon.com/jp/blogs/news/best-practices-for-developing-cloud-applications-with-aws-cdk/#more-46953:~:text=%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82-,CDK%E3%81%AE%E5%93%B2%E5%AD%A6,-%E5%89%8D%E5%9B%9E%E3%81%AE%E8%A8%98%E4%BA%8B)より
-
-第二項: cloud assembly についてはここが[ここ](https://docs.aws.amazon.com/cdk/v2/guide/apps.html#apps_cloud_assembly:~:text=These%20artifacts%20include%20AWS%20CloudFormation%20templates%2C%20AWS%20Lambda%20application%20bundles%2C%20file%20and%20Docker%20image%20assets%2C%20and%20other%20deployment%20artifacts.)とその周辺を読むのが一番理解しやすいと思う。
-
-第三項: [注意]激しく個人の感想です。  
-でもLeanとDevOpsの科学に書いてあった多くのプラクティス繋がるアイディアではあるはず。
+![](./cdk-blog.png) <!-- .element: height="400px" -->  
+[リンク](https://aws.amazon.com/jp/blogs/opensource/working-backwards-the-story-behind-the-aws-cloud-development-kit/)
 
 ---
-サービスを生み、育てるものとして、本番で動作するアプリケーションまで責任を持ち、高効率開発につなげよう！
-Notes: [注意]個人のお気持ちです。
+
+###  背景
+
+数年前、Eladさんたちは私たちはホットなトレンド商品をより良く特定するために、検索サービスを再構築していました。
+この新しいイベント駆動型アーキテクチャは、AWSのグローバルインフラストラクチャの複数の環境に展開されたAWSサービス（例えば、Amazon DynamoDB、AWS Lambda、Amazon Kinesisなど）を使って構築されました。
+チームは、これをモジュール方式でアーキテクチャーと構築を行い、分離して開発とテストを行い、必要に応じて独立して進化させることを望んでいました。
+
+---
+
+### 課題
+
+AWS CloudFormationを使っていました。
+AWS CloudFormationはリソースをプロビジョニングするための正しいツールでしたが、チームは**YAML/JSONを使うことは彼らのシステムを記述するための正しいアプローチではないと感じていました。**
+AWS CloudFormationのテンプレートは、基本的にリソースとその構成のフラットなリストです。インジェクションパイプライン "や "ストレージレイヤー"、"dynamodbスキャナ "などの抽象的なアイデアを表現するためのツールは含まれていないのです。
+
+---
+
+### 解決策
+
+チームは自分たちを制限するのではなく、**AmazonのInvent and Simplifyの原則**に従って、AWS CloudFormationの力を使いながら、JSONの代わりにJavaを使用できる高レベルのオブジェクト指向の抽象化を考え出しました。
+そして、個々のAWSリソースをモデル化したクラスを作成し、「コンストラスト」と呼ばれるプログラミングモデルを使って、これらを再利用可能な高レベルの概念に素早く組み上げることができた。
+さらに、**このアプローチにより、アプリケーションとインフラに同じプログラミング言語を使用することが可能になり、開発者の学習曲線が短縮され、ユニットテストなどの技術を使用して品質を向上させることができるようになった。**
+**このプロジェクトは予定より早く納品され、AWS CDKの作成につながるアプローチの概念実証となりました。**
+
+---
+
+### そしてCDKへ
+
+チームは、このプロジェクトを成功に導くために、他の方針も採用しました。そのひとつが、「開発者がどこにいても対応できるようにする（**meeting developers where they are**）」という考え方です。
+そのために、お客様が使う複数のプログラミング言語をどうサポートするかを検討しました。
+そして、**このアプローチは、チームが作成した別のオープンソース技術であるjsii (the JavaScript Interop Interface)の開発につながりました。**
+これにより、AWS CDKの抽象化を一度（TypeScriptで）書き、それを複数のプログラミング言語に公開することができるようになりました。
+(詳しくはブログ記事「How the jsii open source framework meets developers where they are」をお読みください)。
+
+---
+
+_**I expect the cdk to become**_  
+_**the developer preferred approach**_  
+_**for building and configuring**_  
+_**cloud services and other complex systems.**_
+
+https://youtu.be/AYYTrDaEwLs?t=909
+
+Note:
+最初に紹介したブログにもありますが、2020 AWS Summit Online Americasのキーノートで、AmazonのCTOであるWerner Vogels氏は基調講演でこう述べました。
+cdkの基礎であるconstructsという抽象化によって、cdkはAWSに限らないさまざまなリソースを構築することができます。
+このあとで紹介される cdktf や cdk8s 、また construct hub で公開されている datadog, github。
