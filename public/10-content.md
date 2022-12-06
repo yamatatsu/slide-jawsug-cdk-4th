@@ -1,19 +1,18 @@
-私のあとの方々からは今年のCDKに関するアップデートを振り返っていくのですが、私からはCDKが生まれてから去年まで、どんな事があったのかという歴史を紹介していきたいと思います。
-
 ### 目次
 
-- CDK出生秘話
-- 〇〇期
-- 〇〇期
-- 〇〇期
-- 〇〇期
----
-# きっかけ
----
-CDKの作者 Elad Ben-Israel が書いたブログ
+- きっかけ
+- CDKの始まりを見てみよう
+- 年表
+- v2の話
 
-![](./cdk-blog.png) <!-- .element: height="400px" -->  
-[リンク](https://aws.amazon.com/jp/blogs/opensource/working-backwards-the-story-behind-the-aws-cloud-development-kit/)
+---
+
+# きっかけ
+
+---
+CDKの作者が書いたブログ （[リンク](https://aws.amazon.com/jp/blogs/opensource/working-backwards-the-story-behind-the-aws-cloud-development-kit/)）
+
+![](./cdk-blog.png) <!-- .element: height="160px" -->  
 
 ---
 
@@ -49,6 +48,106 @@ AWS CloudFormationのテンプレートは、基本的にリソースとその�
 そして、**このアプローチは、チームが作成した別のオープンソース技術であるjsii (the JavaScript Interop Interface)の開発につながりました。**
 これにより、AWS CDKの抽象化を一度（TypeScriptで）書き、それを複数のプログラミング言語に公開することができるようになりました。
 (詳しくはブログ記事「How the jsii open source framework meets developers where they are」をお読みください)。
+
+---
+
+それではCDKの始まりを見てみましょう
+
+---
+
+CDKの最初のコミット
+
+---
+
+2017-10-05
+
+---
+
+https://github.com/aws/aws-cdk/commit/b2073c40df5eb54852359a852ecdbef4ddf69d77
+
+---
+
+_The AWS CDK is a rich class library for building services on top of the AWS Cloud. CfnObjects is the base layer of the CDK, providing language bindings to CloudFormation resources._
+
+---
+
+2回目のコミット
+
+---
+
+2018-05-30
+
+---
+
+なぜ半年以上も。。🤔
+
+---
+
+https://github.com/aws/aws-cdk/commits/b470492fa1babfd7528d73d429d6eea36c5f2d39/packages
+
+---
+
+<section data-auto-animate>
+
+- 2019-07 **v1** GA
+- 2020-07 CDK Pipelines Preview
+- 2021-04 v2 and go Developer Preview
+
+</section>
+<section data-auto-animate>
+
+- 2019-07 **v1** GA
+- 2020-07 CDK Pipelines Preview
+- 2021-04 v2 and go Developer Preview
+- 2021-07 CDK Pipelines GA
+
+</section>
+<section data-auto-animate>
+
+- 2019-07 **v1** GA
+- 2020-07 **CDK Pipelines** Preview
+- 2021-04 **v2 and go** Developer Preview
+- 2021-07 **CDK Pipelines** GA
+- 2021-09 **hot swap**
+
+</section>
+<section data-auto-animate>
+
+- 2019-07 **v1** GA
+- 2020-07 **CDK Pipelines** Preview
+- 2021-04 **v2 and go** Developer Preview
+- 2021-07 **CDK Pipelines** GA
+- 2021-09 **hot swap**
+- 2021-10 **cdk8s** GA
+
+</section>
+<section data-auto-animate>
+
+- 2019-07 **v1** GA
+- 2020-07 **CDK Pipelines** Preview
+- 2021-04 **v2 and go** Developer Preview
+- 2021-07 **CDK Pipelines** GA
+- 2021-09 **hot swap**
+- 2021-10 **cdk8s** GA
+- 2021-12 **v2** GA
+
+</section>
+<section data-auto-animate>
+
+- 2019-07 **v1** GA
+- 2020-07 **CDK Pipelines** Preview
+- 2021-04 **v2 and go** Developer Preview
+- 2021-07 **CDK Pipelines** GA
+- 2021-09 **hot swap**
+- 2021-10 **cdk8s** GA
+- 2021-12 **v2** GA
+- 2021-12 **Construct Hub** GA
+
+</section>
+
+---
+
+さいごに
 
 ---
 
