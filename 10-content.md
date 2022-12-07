@@ -3,7 +3,7 @@
 - きっかけ
 - CDKの始まりを見てみよう
 - 年表
-- v2の話
+- さいごに
 
 ---
 
@@ -81,6 +81,8 @@ _The AWS CDK is a rich class library for building services on top of the AWS Clo
 
 なぜ半年以上も。。🤔
 
+<!-- TODO: JSII の話をnoteに書くか？ -->
+
 ---
 
 https://github.com/aws/aws-cdk/commits/b470492fa1babfd7528d73d429d6eea36c5f2d39/packages
@@ -90,16 +92,16 @@ https://github.com/aws/aws-cdk/commits/b470492fa1babfd7528d73d429d6eea36c5f2d39/
 <section data-auto-animate>
 
 - 2019-07 **v1** GA
-- 2020-07 CDK Pipelines Preview
-- 2021-04 v2 and go Developer Preview
+- 2020-07 **CDK Pipelines** Preview
+- 2021-04 **v2 and go** Developer Preview
 
 </section>
 <section data-auto-animate>
 
 - 2019-07 **v1** GA
-- 2020-07 CDK Pipelines Preview
-- 2021-04 v2 and go Developer Preview
-- 2021-07 CDK Pipelines GA
+- 2020-07 **CDK Pipelines** Preview
+- 2021-04 **v2 and go** Developer Preview
+- 2021-07 **CDK Pipelines** GA
 
 </section>
 <section data-auto-animate>
@@ -148,6 +150,10 @@ https://github.com/aws/aws-cdk/commits/b470492fa1babfd7528d73d429d6eea36c5f2d39/
 ---
 
 さいごに
+
+---
+
+AWS Global Summit Online 2020 の Keynote で CTO の Werner氏はこのように語っています。
 
 ---
 
