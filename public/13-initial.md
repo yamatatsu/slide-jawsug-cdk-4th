@@ -35,3 +35,10 @@ JSII作ってたんだ、と予想した。
 ---
 
 https://github.com/aws/aws-cdk/commits/b470492fa1babfd7528d73d429d6eea36c5f2d39/packages
+
+---
+
+はじまりの話終わり
+
+Note:
+他にもyarn v1使ってたり、当初からlerna使ってたり、エモみがたっぷりなのでもしよかったら眺めてみてください！
